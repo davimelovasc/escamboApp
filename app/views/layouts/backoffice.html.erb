@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>BackOffice - EscamboApp</title>
+  <title>BackOffice - Davi Importados</title>
   <%= csrf_meta_tags %>
 
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -23,23 +23,27 @@
 <body>
 
   <div id="wrapper">
+    <% if not admin_signed_in? %>
+      <%= yield %>
+    <% else %>
+      <%= render partial: "layouts/backoffice_shared/navigation" %>
 
-    <%= render partial: "layouts/backoffice_shared/navigation" %>
+      <div id="page-wrapper">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-lg-12">
 
-    <div id="page-wrapper">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-lg-12">
+              <%= yield %>
 
-            <%= yield %>
-
+            </div>
           </div>
         </div>
       </div>
-    </div>
+
+    <% end %>
 
   </div>
 
-</body>
 
+</body>
 </html>
