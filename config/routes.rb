@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   namespace :backoffice do
     get '/' => 'dashboard#index'
-    get '/categories' => 'categories#index'
+    resources :categories, except: [:show]
   end
 
 
