@@ -24,21 +24,37 @@
 
   <div id="wrapper">
     <% if not admin_signed_in? %>
-      <%= yield %>
+    <%= yield %>
     <% else %>
-      <%= render partial: "layouts/backoffice_shared/navigation" %>
+    <%= render partial: "layouts/backoffice_shared/navigation" %>
 
-      <div id="page-wrapper">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-lg-12">
+    <div id="page-wrapper">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-12">
 
-              <%= yield %>
-
+            <!--  start messages_partial -->
+            <% if notice %>
+            <div class="alert alert-success alert-dismissable">
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+              <%= notice %>
             </div>
+            <% end %>
+
+            <% if alert %>
+            <div class="alert alert-danger alert-dismissable">
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+              <%= alert %>
+            </div>
+            <% end %>
+            <!--  end messages_partial -->
+
+            <%= yield %>
+
           </div>
         </div>
       </div>
+    </div>
 
     <% end %>
 

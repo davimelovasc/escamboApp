@@ -1,7 +1,7 @@
 <!-- Header -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+<nav class="navbar navbar-expand-lg navbar-dark bg-img">
   <div class="container-fluid" style="padding-left: 0;">
-    <h2><a class="navbar-brand" href="#" style="font-size: inherit">Davi Importados</a></h2>
+    <h2><a class="navbar-brand" href="#" style="font-size: inherit">NOME</a></h2>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item active">
@@ -13,12 +13,69 @@
           <a class="nav-link" href="#">About</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Services</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Contact</a>
+          <a class="nav-link pop" href="#" id="login-link">Entrar</a>
         </li>
       </ul>
     </div>
   </div>
 </nav>
+
+<!-- <div id="login-div">
+
+<form>
+<div class="form-group">
+<label for="exampleInputEmail1">Email address</label>
+<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+</div>
+</form>
+
+</div> -->
+
+<script type="text/javascript">
+var login = '';
+$('#login-link').popover({
+  "content": '<div class="col-auto">'+
+  '<label for="login">Usuário: </label>'+
+  '<div class="input-group mb-2">'+
+  '<input type="text" class="form-control" id="login" autocomplete="off">'+
+  '</div>'+
+  '<label for="password">Senha: </label>'+
+  '<div class="input-group mb-2">'+
+  '<input type="password" class="form-control"  id="password" autocomplete="off">'+
+  '</div>'+
+  '<div class="input-group mb-1">'+
+  '<button type="submit" class="btn btn-primary">Entrar</button>'+
+  '<a href="#" class="mt-auto mb-auto ml-3">Cadastre-se</a>'+
+  '</div>'+
+  '</div>',
+  "trigger": "manual" ,
+  "placement": "bottom",
+  "html": true
+}).on("mouseenter", function () {
+  var _this = this;
+  $(this).popover("show");
+  $("#login").val(login);
+  $(".popover").on("mouseleave", function () {
+    if($("#login").val() != '' && $("#login").val() != undefined )
+    login =  $("#login").val();
+    $(_this).popover('hide');
+  });
+}).on("mouseleave", function () {
+  var _this = this;
+  setTimeout(function () {
+    if($("#login").val() != '' && $("#login").val() != undefined )
+    login =  $("#login").val();
+    if (!$(".popover:hover").length) {
+      $(_this).popover("hide");
+    } else {
+      $("#login").val(login);
+    }
+  }, 400);
+});
+
+$('#logo-link').click(function() {
+  $(this).popover('toggle');
+});
+
+</script>

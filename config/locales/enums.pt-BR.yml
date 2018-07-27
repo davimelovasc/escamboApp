@@ -1,0 +1,6 @@
+'pt-BR':
+  enums:
+    admin:
+      role:
+        super: Completo
+        normal: Limitado
